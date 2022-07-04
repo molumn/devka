@@ -8,6 +8,7 @@
 #include <devka-common/common.hpp>
 
 #include "devka-graphics/graphic/graphic_api_check.hpp"
+#include "devka-graphics/graphic/graphic_export.hpp"
 
 #include "devka-graphics/render/buffer.hpp"
 #include "devka-graphics/render/window_context.hpp"

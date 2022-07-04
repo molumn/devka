@@ -49,7 +49,7 @@
 #
 #else
 #
-#   define DK_CREATE_LOGGER(code, name, level)      ::dvk::Log::create_logger(name, code, level)
+#   define DK_CREATE_LOGGER(code, name, level)
 #
 #   define  DK_LOG_TRACE(code, ...)
 #   define  DK_LOG_INFO(code, ...)

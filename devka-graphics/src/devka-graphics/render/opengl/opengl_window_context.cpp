@@ -27,7 +27,6 @@ namespace dvk::graphics {
 
     void OpenGLWindowContext::run() {
         glfwSwapBuffers(GLFW_WINDOW_HANDLE(m_graphic_handle));
-        glfwPollEvents();    //todo
     }
 
     void OpenGLWindowContext::destroy() {

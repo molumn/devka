@@ -3,6 +3,8 @@
 //
 #include <devka-common/pch.hpp>
 
+#include <devka-graphics/graphic/graphic_export.hpp>
+
 #include "window.hpp"
 
 namespace dvk {
@@ -17,6 +19,7 @@ namespace dvk {
 
     void Window::run() {
         context->run();
+        graphics::GraphicExports::pollEvents();
     }
 
     void Window::destroy() {
