@@ -26,8 +26,8 @@ namespace dvk {
 
         std::vector<spdlog::sink_ptr> sinks;
         sinks.emplace_back(std::make_shared<spdlog::sinks::stdout_color_sink_mt>());
-        sinks.emplace_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>(name + ".log", true));
-        sinks.emplace_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>("STORE-" + time_string + ".log", true));
+        sinks.emplace_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/" + name + ".log", true));
+        sinks.emplace_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/STORE-" + time_string + ".log", true));
 
         sinks[0]->set_pattern("%^[%T] %n : %v%$");
         sinks[1]->set_pattern("[%T] [%l] %n : %v");
