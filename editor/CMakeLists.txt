@@ -1,27 +1,25 @@
 
-project(editor
+project(${DEVKA_EDITOR}
         VERSION 0.1.0.0
+        LANGUAGES CXX
 )
 
-link_libraries(devka-world)
-link_libraries(devka-common)
+link_libraries(${DEVKA_WORLD})
+link_libraries(${DEVKA_COMMON})     # test
 
-file(GLOB PROJECT_HPP_FILE
-        "src/${PROJECT_NAME}/**.hpp"
-        "src/${PROJECT_NAME}/**/**.hpp"
-        "src/${PROJECT_NAME}/**/**/**.hpp"
-        )
+file(GLOB DEVKA_EDITOR_HPP_FILE
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**.hpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**/**.hpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**/**/**.hpp"
+)
 
-file(GLOB PROJECT_CPP_FILE
-        "src/${PROJECT_NAME}/**.cpp"
-        "src/${PROJECT_NAME}/**/**.cpp"
-        "src/${PROJECT_NAME}/**/**/**.cpp"
-        )
+file(GLOB DEVKA_EDITOR_CPP_FILE
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**.cpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**/**.cpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_EDITOR}/**/**/**.cpp"
+)
 
-add_executable(${PROJECT_NAME} ${PROJECT_HPP_FILE} ${PROJECT_CPP_FILE})
-
-prepare_output_dir(${PROJECT_NAME})
-
-preset_all_configuration(${PROJECT_NAME})
-
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_HPP_FILE})
+add_executable(${DEVKA_EDITOR} ${DEVKA_EDITOR_HPP_FILE} ${DEVKA_EDITOR_CPP_FILE})
+target_include_directories(${DEVKA_EDITOR} PUBLIC "${PROJECT_SOURCE_DIR}/src")
+prepare_output_dir(${DEVKA_EDITOR})
+preset_all_configuration(${DEVKA_EDITOR})

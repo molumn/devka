@@ -39,10 +39,10 @@ namespace dvk {
     public:
         virtual ~Event() = default;
 
-        virtual EventCategory getCategory() const = 0;
-        virtual EventType getType() const = 0;
+        [[nodiscard]] virtual EventCategory getCategory() const = 0;
+        [[nodiscard]] virtual EventType getType() const = 0;
 
-        virtual const std::string& toString() const = 0;
+        [[nodiscard]] virtual const std::string& toString() const = 0;
     private:
     };
 
@@ -69,8 +69,7 @@ static EventCategory getCategory() { return event_category; }     \
 static EventType getType() { return event_type; }
 
 
-
-
 } // dvk
+
 
 #endif //DEVKA_EVENT_HPP

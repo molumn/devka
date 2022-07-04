@@ -12,18 +12,15 @@
 
 #define     b1          bool
 
-#define     int8        __int8
-#define     int16       __int16
-#define     int32       __int32
-#define     int64       __int64
-#define     int128      __int128
+#define     int8        signed char
+#define     int16       signed short
+#define     int32       signed int
+#define     int64       signed long long
 
-#define     uint8       unsigned __int8
-#define     uint16      unsigned __int16
-#define     uint32      unsigned __int32
-#define     uint        unsigned __int32
-#define     uint64      unsigned __int64
-#define     uint128     unsigned __int128
+#define     uint8       unsigned char
+#define     uint16      unsigned short
+#define     uint32      unsigned int
+#define     uint64      unsigned long long
 
 #define     f32         float
 #define     f64         double

@@ -1,27 +1,25 @@
 
-project(devka-physics)
+project(${DEVKA_PHYSICS}
+        VERSION 0.1.0.0
+        LANGUAGES CXX
+)
 
-link_libraries(devka-common)
+link_libraries(${DEVKA_COMMON})
 
-file(GLOB PROJECT_HPP_FILE
-        "src/${PROJECT_NAME}/**.hpp"
-        "src/${PROJECT_NAME}/**/**.hpp"
-        "src/${PROJECT_NAME}/**/**/**.hpp"
-        )
+file(GLOB DEVKA_PHYSICS_HPP_FILE
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**.hpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**/**.hpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**/**/**.hpp"
+)
 
-file(GLOB PROJECT_CPP_FILE
-        "src/${PROJECT_NAME}/**.cpp"
-        "src/${PROJECT_NAME}/**/**.cpp"
-        "src/${PROJECT_NAME}/**/**/**.cpp"
-        )
+file(GLOB DEVKA_PHYSICS_CPP_FILE
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**.cpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**/**.cpp"
+        "${PROJECT_SOURCE_DIR}/src/${DEVKA_PHYSICS}/**/**/**.cpp"
+)
 
-
-add_library(${PROJECT_NAME} SHARED ${PROJECT_HPP_FILE} ${PROJECT_CPP_FILE})
-
-preset_all_configuration(${PROJECT_NAME})
-
-shared_library_setting(${PROJECT_NAME})
-prepare_output_dir(${PROJECT_NAME})
-
-target_include_directories(${PROJECT_NAME} INTERFACE src)
-target_include_directories(${PROJECT_NAME} PUBLIC src)
+add_library(${DEVKA_PHYSICS} SHARED ${DEVKA_PHYSICS_HPP_FILE} ${DEVKA_PHYSICS_CPP_FILE})
+target_include_directories(${DEVKA_PHYSICS} PUBLIC "${PROJECT_SOURCE_DIR}/src")
+shared_library_setting(${DEVKA_PHYSICS})
+prepare_output_dir(${DEVKA_PHYSICS})
+preset_all_configuration(${DEVKA_PHYSICS})

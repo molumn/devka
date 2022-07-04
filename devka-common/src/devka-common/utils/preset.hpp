@@ -18,7 +18,7 @@
 #
 #   define  DK_ENABLE_ASSERTS true
 #else
-#   define  DK_ENABLE_ASSERTS true
+#   define  DK_ENABLE_ASSERTS false
 #   define  DK_DEBUG_BREAK()
 #endif
 

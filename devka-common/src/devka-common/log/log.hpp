@@ -8,11 +8,11 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
 
-#include <devka-common/utils/macro.hpp>
+#include <devka-common/units/primitives.hpp>
 
 namespace dvk {
 
-    enum class LogLevel : int {
+    enum class LogLevel {
         TRACE = SPDLOG_LEVEL_TRACE,
         DEBUG = SPDLOG_LEVEL_DEBUG,
         INFO = SPDLOG_LEVEL_INFO,
@@ -23,10 +23,10 @@ namespace dvk {
 
     /* static */ class Log {
     public:
-        static void create_logger(const std::string& name, int code, LogLevel level);
-        static Ref<spdlog::logger>& get_logger(int code);
+        static void create_logger(const std::string& name, int32 code, LogLevel level);
+        static Ref<spdlog::logger>& get_logger(int32 code);
     private:
-        static std::unordered_map<int, Ref<spdlog::logger>> i_loggers;
+        static std::unordered_map<int32, Ref<spdlog::logger>> i_loggers;
     };
 
 

@@ -6,7 +6,6 @@
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/basic_file_sink.h>
-#include <iomanip>
 
 #include "log.hpp"
 
@@ -14,7 +13,7 @@ namespace dvk {
 
     std::unordered_map<int, Ref<spdlog::logger>> Log::i_loggers;
 
-    void Log::create_logger(const std::string &name, int code, LogLevel level) {
+    void Log::create_logger(const std::string &name, int32 code, LogLevel level) {
 
         std::stringstream ss;
 
@@ -42,7 +41,7 @@ namespace dvk {
 
     }
 
-    Ref<spdlog::logger> &Log::get_logger(int code) {
+    Ref<spdlog::logger> &Log::get_logger(int32 code) {
         return i_loggers[code];
     }
 

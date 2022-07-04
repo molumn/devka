@@ -1,6 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.22.0)
 
 SET(CMAKE_CXX_STANDARD 23)
+SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 CMAKE_PATH(SET SOLUTION_OUTPUT_PRE_DIR "~/solutions/Engine/devka") # your project directory (local git repository path)
 
@@ -38,8 +39,14 @@ project(devka
         VERSION 0.1.0
 )
 
-add_subdirectory(devka-common)
-add_subdirectory(devka-graphics)
-add_subdirectory(devka-physics)
-add_subdirectory(devka-world)
-add_subdirectory(editor)
+set(DEVKA_COMMON "devka-common")
+set(DEVKA_PHYSICS "devka-physics")
+set(DEVKA_GRAPHICS "devka-graphics")
+set(DEVKA_WORLD "devka-world")
+set(DEVKA_EDITOR "editor")
+
+add_subdirectory(${DEVKA_COMMON})
+add_subdirectory(${DEVKA_PHYSICS})
+add_subdirectory(${DEVKA_GRAPHICS})
+add_subdirectory(${DEVKA_WORLD})
+add_subdirectory(${DEVKA_EDITOR})
