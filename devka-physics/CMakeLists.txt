@@ -4,6 +4,9 @@ project(${DEVKA_PHYSICS}
         LANGUAGES CXX
 )
 
+add_subdirectory("3rdparty/glm")
+link_libraries("glm")
+
 link_libraries(${DEVKA_COMMON})
 
 file(GLOB DEVKA_PHYSICS_HPP_FILE

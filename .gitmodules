@@ -4,3 +4,6 @@
 [submodule "devka-common/3rdparty/spdlog"]
 	path = devka-common/3rdparty/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "devka-physics/3rdparty/glm"]
+	path = devka-physics/3rdparty/glm
+	url = https://github.com/g-truc/glm
