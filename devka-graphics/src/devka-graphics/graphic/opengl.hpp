@@ -16,6 +16,8 @@ namespace dvk::graphics {
         static void initGraphics();
         static void terminateGraphics();
 
+        static void applyGlad(GLFWwindow* window);
+
         static b1 isInited();
 
     private:

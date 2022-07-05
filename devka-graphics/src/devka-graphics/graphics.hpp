@@ -11,6 +11,8 @@
 #include "devka-graphics/graphic/graphic_export.hpp"
 
 #include "devka-graphics/render/buffer.hpp"
+#include "devka-graphics/render/render_api.hpp"
+#include "devka-graphics/render/vertex_array.hpp"
 #include "devka-graphics/render/window_context.hpp"
 
 #endif //DEVKA_GRAPHICS_HPP

@@ -12,11 +12,21 @@
 
 namespace dvk::graphics {
 
+    static void GLFWErrorCallback(int32 error, const char* description) {
+        DK_LOG_ERROR(DK_GRAPHIC_LOG_CODE, "GLFW error [{0}] : {1}", error, description);
+    }
+
     void OpenGLWindowContext::init() {
         OpenGLManager::initGraphics();
 
         GLFWwindow* graphic_context = glfwCreateWindow(m_info.width, m_info.height, m_info.name.c_str(), nullptr, nullptr);
         glfwSetWindowUserPointer(graphic_context, &m_info);
+
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE); //test
+        glfwSetErrorCallback(GLFWErrorCallback);
+
+        OpenGLManager::applyGlad(graphic_context);
+
 
         glfwSetWindowCloseCallback(graphic_context, [](GLFWwindow* window) {
             auto* info = (WindowContextInfo*)glfwGetWindowUserPointer(window);
@@ -116,8 +126,6 @@ namespace dvk::graphics {
             info->eventCallback(event);
         });
 
-        glfwMakeContextCurrent(graphic_context);
-
         m_graphic_handle = graphic_context;
     }
 
@@ -126,7 +134,7 @@ namespace dvk::graphics {
     }
 
     void OpenGLWindowContext::destroy() {
-        OpenGLManager::terminateGraphics(); //todo
+//        OpenGLManager::terminateGraphics(); //todo
     }
 
     b1 OpenGLWindowContext::onEvent(Event &event) {
@@ -141,8 +149,16 @@ namespace dvk::graphics {
         m_info.eventCallback = event_callback;
     }
 
-    void *OpenGLWindowContext::getContextHandle() {
+    void *OpenGLWindowContext::getContextHandle() const {
         return m_graphic_handle;
+    }
+
+    void OpenGLWindowContext::focusContextHandle() {
+        glfwMakeContextCurrent(GLFW_WINDOW_HANDLE(m_graphic_handle));
+    }
+
+    OpenGLWindowContext::~OpenGLWindowContext() {
+        OpenGLManager::terminateGraphics(); //todo
     }
 
 

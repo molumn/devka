@@ -15,9 +15,25 @@ namespace dvk {
 
     void Window::init() {
         context->init();
+        mesh = createRef<graphics::Mesh>();
+
+        f32 vertexes[21] = {
+                -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+                0.5f,  -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+                0.0f,   0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f
+        };
+
+        uint32 indices[3] = { 0, 1, 2 };
+
+        mesh->addIndependentObject(
+                vertexes,
+                21
+                );
+        mesh->setIndices(indices, 3);
     }
 
     void Window::run() {
+        mesh->drawTriangles();
         context->run();
         graphics::GraphicExports::pollEvents();
     }

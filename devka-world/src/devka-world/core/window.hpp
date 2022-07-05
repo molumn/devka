@@ -6,6 +6,7 @@
 #define DEVKA_WINDOW_HPP
 
 #include <devka-graphics/render/window_context.hpp>
+#include <devka-graphics/objects/mesh.hpp>
 
 namespace dvk {
 
@@ -24,6 +25,10 @@ namespace dvk {
 
     private:
         Ref<graphics::WindowContext>    context;
+
+        // test
+        Ref<graphics::Mesh> mesh;
+        //
     };
 
 } // dvk

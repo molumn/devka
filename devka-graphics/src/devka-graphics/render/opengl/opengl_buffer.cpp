@@ -11,14 +11,14 @@ namespace dvk::graphics {
 
     OpenGLVertexBuffer::OpenGLVertexBuffer(uint32 size) {
         this->i_param = VertexBufferParam { nullptr, size, 0 };
-        glCreateBuffers(1, &i_param.VBO);
+        glGenBuffers(1, &i_param.VBO);
         glBindBuffer(GL_ARRAY_BUFFER, i_param.VBO);
         glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
     }
 
     OpenGLVertexBuffer::OpenGLVertexBuffer(f32 *vertexes, uint32 size) {
         this->i_param = VertexBufferParam { vertexes, size, 0 };
-        glCreateBuffers(1, &i_param.VBO);
+        glGenBuffers(1, &i_param.VBO);
         glBindBuffer(GL_ARRAY_BUFFER, i_param.VBO);
         glBufferData(GL_ARRAY_BUFFER, size, vertexes, GL_STATIC_DRAW);
     }
@@ -58,9 +58,9 @@ namespace dvk::graphics {
 
     OpenGLIndexBuffer::OpenGLIndexBuffer(uint32 *indices, uint32 count) {
         this->i_param = IndexBufferParam { indices, count, 0 };
-        glCreateBuffers(1, &i_param.IBO);
+        glGenBuffers(1, &i_param.IBO);
         glBindBuffer(GL_ARRAY_BUFFER, i_param.IBO);
-        glBufferData(GL_ARRAY_BUFFER, count, indices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(uint32) * count, indices, GL_STATIC_DRAW);
     }
 
     OpenGLIndexBuffer::~OpenGLIndexBuffer() {

@@ -13,7 +13,7 @@ namespace dvk::graphics {
     public:
         OpenGLWindowContext() : WindowContext() {}
         explicit OpenGLWindowContext(const WindowContextInfo& info) : WindowContext(info) {}
-        ~OpenGLWindowContext() final = default;
+        ~OpenGLWindowContext() final;
 
         void init() override;
         void run() override;
@@ -23,7 +23,8 @@ namespace dvk::graphics {
         void resetInfo(const WindowContextInfo& info) override;
         void updateEventCallbackFn(const EventCallbackStdFn& event_callback) override;
 
-        void* getContextHandle() override;
+        [[nodiscard]] void* getContextHandle() const override;
+        void focusContextHandle() override;
 
     private:
         void* m_graphic_handle = nullptr;

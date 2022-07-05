@@ -47,22 +47,20 @@ namespace dvk {
             virtual ~WindowContext() = default;
 
             virtual void init() = 0;
-
             virtual void run() = 0;
-
             virtual void destroy() = 0;
 
             virtual b1 onEvent(Event &event) = 0;
 
             virtual void resetInfo(const WindowContextInfo &info) = 0;
-
             virtual void updateEventCallbackFn(const EventCallbackStdFn &event_callback) = 0;
 
             b1 isRunning() const;
-
             void setRunning(b1 is_running);
 
-            virtual void *getContextHandle() = 0;
+            [[nodiscard]] virtual void *getContextHandle() const = 0;
+            virtual void focusContextHandle() = 0;
+
 
             static Ref<WindowContext> createContext(const WindowContextInfo &info = WindowContextInfo());
 

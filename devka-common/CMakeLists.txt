@@ -20,6 +20,7 @@ file(GLOB DEVKA_COMMON_CPP_FILE
 )
 
 add_library(${DEVKA_COMMON} STATIC ${DEVKA_COMMON_HPP_FILE} ${DEVKA_COMMON_CPP_FILE})
+target_precompile_headers(${DEVKA_COMMON} PUBLIC "${PROJECT_SOURCE_DIR}/src/${DEVKA_COMMON}/pch.hpp")
 target_include_directories(${DEVKA_COMMON} PUBLIC "${PROJECT_SOURCE_DIR}/src")
 shared_library_setting(${DEVKA_COMMON})
 prepare_output_dir(${DEVKA_COMMON})

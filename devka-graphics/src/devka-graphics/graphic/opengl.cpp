@@ -30,6 +30,19 @@ namespace dvk::graphics {
         }
     }
 
+    void OpenGLManager::applyGlad(GLFWwindow* window) {
+
+        glfwMakeContextCurrent(window);
+        int32 result = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+        DK_ASSERT(result, DK_GRAPHIC_LOG_CODE, "Failed to load glad (result : {0})", result);
+
+        DK_LOG_INFO(DK_GRAPHIC_LOG_CODE, "glad Info :");
+        DK_LOG_INFO(DK_GRAPHIC_LOG_CODE, "   Vendor : {0}", glGetString(GL_VENDOR));
+        DK_LOG_INFO(DK_GRAPHIC_LOG_CODE, "   Renderer : {0}", glGetString(GL_RENDERER));
+        DK_LOG_INFO(DK_GRAPHIC_LOG_CODE, "   Version : {0}", glGetString(GL_VERSION));
+
+    }
+
     b1 OpenGLManager::isInited() {
         return is_inited;
     }

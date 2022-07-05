@@ -7,7 +7,7 @@
 
 
 #include <list>
-#include <time.h>
+#include <ctime>
 #include <memory>
 #include <vector>
 #include <string>
